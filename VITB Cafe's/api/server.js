@@ -29,9 +29,9 @@ app.get('/api', (_req, res) => {
   res.json({ status: 'ok', message: 'VITB Cafés API is running 🍽️' });
 });
 
-app.use('/api/ratings',  ratingsRouter);
-app.use('/api/feedback', feedbackRouter);
-app.use('/api/stats',    statsRouter);
+app.use('/ratings', ratingsRouter);
+app.use('/feedback', feedbackRouter);
+app.use('/stats', statsRouter);
 
 // 404
 app.use((_req, res) => res.status(404).json({ error: 'Route not found.' }));
