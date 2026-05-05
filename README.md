@@ -1,5 +1,3 @@
-# VITB-Cafe-s
-
 <div align="center">
 
 <img src="https://img.shields.io/badge/VIT%20Bhopal-VITB%20Cafés-C8860A?style=for-the-badge&labelColor=1C1008" alt="VITB Cafés"/>
@@ -11,7 +9,8 @@
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-C8860A?style=flat-square&logo=vercel&logoColor=white)](https://vitb-cafes.vercel.app)
 [![MongoDB](https://img.shields.io/badge/Database-MongoDB%20Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://cloud.mongodb.com)
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com)
+[![Frontend](https://img.shields.io/badge/Frontend-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com)
+[![Backend](https://img.shields.io/badge/Backend-Render-46E3B7?style=flat-square&logo=render&logoColor=black)](https://render.com)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
 </div>
@@ -45,7 +44,8 @@
 | Frontend | Vanilla HTML, CSS, JavaScript (single file) |
 | Backend | Node.js + Express.js |
 | Database | MongoDB Atlas (Mongoose ODM) |
-| Hosting | Vercel (frontend + backend, same domain) |
+| Frontend Hosting | Vercel |
+| Backend Hosting | Render |
 
 ---
 
@@ -53,16 +53,12 @@
 
 ```
 vitb-cafes/
-├── 📄 vercel.json          ← routes /api/* to backend, rest to frontend
-├── 📄 package.json         ← all dependencies
-├── 📄 .env.example         ← environment variable template
+├── 📄 index.html           ← complete frontend (single file, at root)
 ├── 📄 .gitignore
-│
-├── 📂 public/
-│   └── index.html          ← complete frontend (single file)
 │
 └── 📂 api/
     ├── server.js            ← Express app entry point
+    ├── package.json         ← dependencies (used by Render / local dev)
     ├── 📂 db/
     │   └── connect.js       ← MongoDB connection (Mongoose)
     ├── 📂 models/
@@ -73,69 +69,6 @@ vitb-cafes/
         ├── feedback.js      ← POST /api/feedback
         └── stats.js         ← GET /api/stats
 ```
-
----
-
-## 🚀 Deploy on Vercel (Free)
-
-### 1. Set up MongoDB Atlas
-
-1. Sign up at [cloud.mongodb.com](https://cloud.mongodb.com)
-2. Create a free **M0** cluster → region: **Mumbai**
-3. Add IP `0.0.0.0/0` under Network Access
-4. Get your connection string:
-   ```
-   mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/vitb_cafes?retryWrites=true&w=majority
-   ```
-
-### 2. Deploy to Vercel
-
-1. Fork this repo or push to your own GitHub
-2. Go to [vercel.com](https://vercel.com) → **Add New Project** → import repo
-3. Add environment variable:
-
-   | Key | Value |
-   |-----|-------|
-   | `MONGODB_URI` | your Atlas connection string |
-
-4. Click **Deploy** — done! ✅
-
-Your site will be live at `https://your-project.vercel.app`
-
-> Both frontend and backend deploy together on the same URL — no CORS issues, no separate services.
-
----
-
-## 🛠️ Local Development
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/your-username/vitb-cafes.git
-cd vitb-cafes
-
-# 2. Install dependencies
-npm install
-
-# 3. Set up environment
-cp .env.example .env
-# Edit .env — paste your MONGODB_URI
-
-# 4. Run backend
-node api/server.js
-# API running at http://localhost:3000
-
-# 5. Open frontend
-# Open public/index.html in browser
-# OR use VS Code Live Server extension
-```
-
-> For local dev, change `API_BASE` in `public/index.html`:
-> ```js
-> const API_BASE = 'http://localhost:3000';
-> ```
-> Change it back to `''` before pushing to GitHub.
-
----
 
 ## 🔌 API Reference
 
@@ -181,18 +114,14 @@ Content-Type: application/json
 
 Contributions are welcome! If you want to:
 
-- Add a new café or update menu items → edit the `CAFES` array in `public/index.html`
+- Add a new café or update menu items 
 - Fix a bug or add a feature → open a pull request
 - Report an issue → open a GitHub issue
 
 ---
 
-## 📄 License
-
-This project is open source under the [MIT License](LICENSE).
-
----
-
-
+<div align="center">
 
 Made with ❤️ for VITians &nbsp;·&nbsp; VIT Bhopal University &nbsp;·&nbsp; 2025
+
+</div>
