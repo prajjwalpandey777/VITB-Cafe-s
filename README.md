@@ -121,6 +121,6 @@ Contributions are welcome! If you want to:
 
 <div align="center">
 
-Made with ❤️ for VITians &nbsp;·&nbsp; VIT Bhopal University &nbsp;·&nbsp; 2025
+Made with ❤️ for VITians &nbsp;·&nbsp; VIT Bhopal University &nbsp;·&nbsp; 2026
 
 </div>
