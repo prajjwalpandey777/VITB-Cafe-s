@@ -45,7 +45,7 @@ app.use((err, _req, res, _next) => {
 // Local dev
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => console.log(`\n🍽️  Running at http://localhost:${PORT}\n`));
+  app.listen(PORT, () => console.log(`\n Server running on port ${PORT}\n`));
 }
 
 // Required by Vercel
