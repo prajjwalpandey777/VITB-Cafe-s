@@ -18,23 +18,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /*Instagram */
-  .insta-bar{
-  background:#1C1008;
-  text-align:center;
-  padding:.55rem 1rem;
-  font-size:.78rem;
-  font-weight:500;
-  letter-spacing:.03em;
-}
-.insta-bar a{
-  color:#C8860A;
-  text-decoration:none;
+ .insta-link{
+  position:absolute;
+  top:1.1rem;
+  left:1.3rem;
   display:inline-flex;
   align-items:center;
   gap:.45rem;
+  text-decoration:none;
+  color:var(--gold);
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:.04em;
   transition:opacity .2s;
+  z-index:10;
 }
-.insta-bar a:hover{opacity:.75}
+.insta-link:hover{opacity:.7}
+.insta-link svg{flex-shrink:0}
   
 /* ══════════════════════════════════════
    DESIGN TOKENS — LIGHT THEME
@@ -695,17 +695,15 @@ footer b{color:var(--gold)}
 </style>
 </head>
 <body>
-
-<div class="insta-bar">
-  <a href="https://instagram.com/vitbcafes" target="_blank" rel="noopener">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-      <circle cx="12" cy="12" r="4"/>
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-    </svg>
-    Follow us on Instagram @vitbcafes
-  </a>
-</div>
+/*Instagram*/
+<a class="insta-link" href="https://instagram.com/vitbcafes" target="_blank" rel="noopener">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+  </svg>
+  @vitbcafes
+</a>
   
 <!-- ══════════════════════════════════════ HERO -->
 <section class="hero">
