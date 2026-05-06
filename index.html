@@ -2077,7 +2077,7 @@ function openModal(cafeId,itemName){
       <div class="m-rev-t">What VITians Say</div>
       <div class="m-rev-count">${revs.length} review${revs.length>1?'s':''}</div>
     </div>
-    ${revs.slice(0,5).map(r=>`<div class="m-rv">
+    ${revs.slice(0,50).map(r=>`<div class="m-rv">
       <div class="m-rv-top">
         <span style="color:#F0A030;font-size:.82rem">${'★'.repeat(r.rating)}<span style="color:#D0B898">${'★'.repeat(5-r.rating)}</span></span>
         <span class="m-rv-name">${r.name}</span>
