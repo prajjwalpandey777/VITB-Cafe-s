@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
         itemName: doc.itemName,
         reviews:  doc.reviews
           .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-          .slice(0, 10),
+          .slice(0, 100),
       };
     }
     res.json(result);
@@ -53,13 +53,13 @@ router.get('/', async (req, res) => {
 router.get('/:cafeId/:itemKey', async (req, res) => {
   try {
     const { cafeId, itemKey } = req.params;
-    const ratings = await Rating.find({ cafeId, itemKey }).sort({ createdAt: -1 }).limit(50).lean();
+    const ratings = await Rating.find({ cafeId, itemKey }).sort({ createdAt: -1 }).limit(200).lean();
     if (!ratings.length) return res.json({ avg: null, count: 0, reviews: [] });
     const avg = ratings.reduce((s, r) => s + r.rating, 0) / ratings.length;
     res.json({
       avg:     Math.round(avg * 100) / 100,
       count:   ratings.length,
-      reviews: ratings.slice(0, 10).map(r => ({ rating: r.rating, name: r.name, review: r.review, createdAt: r.createdAt })),
+      reviews: ratings.slice(0, 100).map(r => ({ rating: r.rating, name: r.name, review: r.review, createdAt: r.createdAt })),
     });
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch item ratings.' });
@@ -87,7 +87,7 @@ router.post('/', submitLimiter, async (req, res) => {
 
     // Return updated stats
     const itemKey  = makeKey(itemName);
-    const all      = await Rating.find({ cafeId: doc.cafeId, itemKey }).sort({ createdAt: -1 }).limit(50).lean();
+    const all      = await Rating.find({ cafeId: doc.cafeId, itemKey }).sort({ createdAt: -1 }).limit(200).lean();
     const avg      = all.reduce((s, x) => s + x.rating, 0) / all.length;
 
     res.status(201).json({
@@ -95,7 +95,7 @@ router.post('/', submitLimiter, async (req, res) => {
       updated: {
         avg:     Math.round(avg * 100) / 100,
         count:   all.length,
-        reviews: all.slice(0, 10).map(x => ({ rating: x.rating, name: x.name, review: x.review, createdAt: x.createdAt })),
+        reviews: all.slice(0, 100).map(x => ({ rating: x.rating, name: x.name, review: x.review, createdAt: x.createdAt })),
       },
     });
   } catch (err) {
