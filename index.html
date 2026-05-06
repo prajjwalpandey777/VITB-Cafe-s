@@ -2070,7 +2070,7 @@ function openModal(cafeId,itemName){
 
   // Existing reviews from MongoDB cache
   const rd2 = getAvg(cafeId, itemName);
-  const revs = rd2 ? (rd2.ratings || []) : [];
+  const revs = rd2 ? (rd2.ratings || []).filter(r => (r.review || r.text || '').trim().length > 0) : [];
   document.getElementById('m-revs').innerHTML=revs.length?`
     <div class="m-div"></div>
     <div class="m-rev-header">
