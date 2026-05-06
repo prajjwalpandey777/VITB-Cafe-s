@@ -17,6 +17,25 @@
 <link rel="apple-touch-icon" href="/logo.png" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/*Instagram */
+  .insta-bar{
+  background:#1C1008;
+  text-align:center;
+  padding:.55rem 1rem;
+  font-size:.78rem;
+  font-weight:500;
+  letter-spacing:.03em;
+}
+.insta-bar a{
+  color:#C8860A;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  transition:opacity .2s;
+}
+.insta-bar a:hover{opacity:.75}
+  
 /* ══════════════════════════════════════
    DESIGN TOKENS — LIGHT THEME
 ══════════════════════════════════════ */
@@ -677,6 +696,17 @@ footer b{color:var(--gold)}
 </head>
 <body>
 
+<div class="insta-bar">
+  <a href="https://instagram.com/vitbcafes" target="_blank" rel="noopener">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+    Follow us on Instagram @vitbcafes
+  </a>
+</div>
+  
 <!-- ══════════════════════════════════════ HERO -->
 <section class="hero">
   <div class="hero-dots"></div>
