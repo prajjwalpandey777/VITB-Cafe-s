@@ -9,6 +9,7 @@ const feedbackRouter = require('./routes/feedback');
 const statsRouter    = require('./routes/stats');
 
 const app = express();
+app.set('trust proxy', 1);
 
 // Connect to MongoDB (Mongoose caches — safe for serverless)
 connectDB();
