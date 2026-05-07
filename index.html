@@ -1476,7 +1476,6 @@ document.getElementById('m-sub').addEventListener('click', async ()=>{
 });
 
 /* ══════════════════════════════════════ FEEDBACK → MongoDB + Gmail */
-const GMAIL = 'hiddencoders007@gmail.com';
 
 document.getElementById('fb-submit').addEventListener('click', async ()=>{
   const msg=document.getElementById('fb-message').value.trim();
@@ -1491,11 +1490,6 @@ document.getElementById('fb-submit').addEventListener('click', async ()=>{
 
   // Save to MongoDB
   const ok = await saveFeedback(name, cafe, type, msg);
-
-  // Also open Gmail compose with the feedback details
-  const subj = `[VITB Cafés] ${type} — ${cafe}`;
-  const body = `From: ${name}\nCafé: ${cafe}\nFeedback Type: ${type}\n\n--- Message ---\n${msg}`;
-  window.location.href = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(GMAIL)}&su=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
 
   btn.textContent = 'Send Feedback →';
   btn.disabled = false;
