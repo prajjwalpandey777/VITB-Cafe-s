@@ -1495,10 +1495,7 @@ document.getElementById('fb-submit').addEventListener('click', async ()=>{
   // Also open Gmail compose with the feedback details
   const subj = `[VITB Cafés] ${type} — ${cafe}`;
   const body = `From: ${name}\nCafé: ${cafe}\nFeedback Type: ${type}\n\n--- Message ---\n${msg}`;
-  window.open(
-    `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(GMAIL)}&su=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`,
-    '_blank'
-  );
+  window.location.href = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(GMAIL)}&su=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
 
   btn.textContent = 'Send Feedback →';
   btn.disabled = false;
